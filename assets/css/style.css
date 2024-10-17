@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Default Configs */
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Headers */
+
+h1 {
+    font-family: 'Afacad Flux';
+    font-size: 6rem;
+    padding: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 0 black;
+}
+
+
+/* Tags */
+
+aside {
+    display: block;
+}
+
+
+/* Header */
+
+.header-titulo {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background: rgb(211, 172, 105);
+    z-index: 1;
+}
+
+.upgrades {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: yellow;
+    margin: 1rem;
+    height: 5rem;
+    width: 20rem;
+}
+
+.configs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    margin: 1rem;
+    height: 5rem;
+    width: 20rem;
+}
+
+
+/* Sections Configuration*/
+
+.section {
+    height: 100vh;
+}
+
+.main-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Main Page Left Side */
+
+.face-and-coins-structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.circular-structure {
+    background-color: red;
+    border-radius: 50%;
+    width:  20rem;
+    height: 20rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 50ms ease-in-out;
+}
+
+.circular-structure:hover {
+    transform: scale(1.1);
+}
+
+.circular-structure:active {
+    transform: scale(0.95);
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+}
+
+.counter-and-coins {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.coins-number{
+    font-family: 'Afacad Flux';
+    font-weight: 900;
+    font-size: 10rem;
+}
+
+.coins-img {
+    width: 10%;
+    padding-left: 1rem;
+}
+
+
+/* Main Page Right Side */
+
+.upgrades-structure {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.upgrade-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color:yellow;
+    width: 75%;
+    height: 60%;
+}
+
+.upgrade-box {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background: blue;
+    color: white;
+    margin: 1rem;
+    height: 33%;
+    border: 2px solid transparent;
+}
+
+.upgrade-box:hover {
+    border: 2px solid rgb(38, 255, 0);
+}
+
+.upgrade-structure-name-cost {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+}
+
+.upgrade-name {
+    font-family: 'Montserrat', sans-serif;
+    text-transform:capitalize;
+    font-weight: 1000;
+    font-size: 3rem
+}
+
+.image-cost-and-cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.coins-image-cost {
+    width: 10%;
+}
+
+.upgrade-cost {
+    font-family: 'Montserrat', sans-serif;
+    text-transform:capitalize;
+    font-weight: 1000;
+}
