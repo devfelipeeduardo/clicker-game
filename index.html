@@ -1,124 +1,133 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>League Clicker</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
+  <aside>
+    <div class="header-titulo">
+      <div class="configs1">
+        Configs1
+      </div>
+      <h1>LEAGUE CLICKER</h1>
+      <div class="configs2">Configs2</div>
+    </div>
+  </aside>
 
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/upgrades.js"></script>
+  <section class="section main-page">
 
-    <aside>
-        <div class="header-titulo">
-            <div class="upgrades">
-                <label for="">Power of Click</label>
-                <button class="plus-upgrade" id="plus-upgrade">plus</button>
-                <button class="subtract-upgrade" id="subtract-upgrade">subtract</button>
-                <span class="power-counter" id="power-counter">1</span>
-            </div>
-            <h1>You Clicked</h1>
-            <div class="configs">Configs</div>
+    <div class="blue-essence-and-coins-structure">
+      <div class="blue-essence-and-coins">
+        <div id="counter-and-coins" class="counter-and-coins">
+          <span id="coins-number" class="coins-number">
+            0
+          </span>
+          <img class="coins-img" src="assets/imgs/moeda.png" alt="Moeda">
         </div>
-    </aside>
+      </div>
 
-    <section class="section main-page">
+      <div id="blue-essence-structure" class="blue-essence-circular-structure">
+        <img class="blue-essence-icon" src="assets/imgs/blue-essence.webp" alt="Blue Essence">
+      </div>
+    </div>
 
-        <div class="face-and-coins-structure">
-            <div class="face-and-coins">
-                <div id="counter-and-coins" class="counter-and-coins">
-                    <span id="coins-number" class="coins-number">
-                        0
-                    </span>
-                    <img class="coins-img" src="assets/imgs/moeda.png" alt="Moeda">
-                </div>
+    <div class="upgrades-structure">
+      <div class="upgrade-boxes">
+
+        <div id="upgrade-minion" class="upgrade-box">
+          <div class="div-image-upgrade">
+            <img class="image-upgrade" src="assets/imgs/minion.webp" alt="">
+          </div>
+          <div class="upgrade-structure-name-cost">
+            <p class="upgrade-name">MINION</p>
+            <div class="image-cost-and-cost">
+              <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
+              <p id="upgrade-cost-minion" class="upgrade-cost">1</p>
             </div>
-
-            <div id="face-person" class="circular-structure">
-                <img class="face" src="assets/imgs/eu.png" alt="Eu" >
-            </div>
-        </div>
-
-        <div class="upgrades-structure">
-            <div class="upgrade-boxes">
-                <div id="upgrade-a" class="upgrade-box">
-                    <div class="image-upgrade">
-                        img1
-                    </div>
-                    <div class="upgrade-structure-name-cost">
-                        <p class="upgrade-name">UPGRADE A</p>
-                        <div class="image-cost-and-cost">
-                            <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
-                            <p class="upgrade-cost">1</p>
-                        </div>
-                    </div>
-                    <p class="upgrade-quantity-counter">0</p>
-                </div>
-
-                <div id="upgrade-b" class="upgrade-box">
-                    <div class="image-upgrade">
-                        img2
-                    </div>
-                    <div class="upgrade-structure-name-cost">
-                        <p class="upgrade-name">UPGRADE B</p>
-                        <div class="image-cost-and-cost">
-                            <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
-                            <p class="upgrade-cost">1</p>
-                        </div>
-                    </div>
-                    <p class="upgrade-quantity-counter">0</p>
-                </div>
-
-                <div id="upgrade-c" class="upgrade-box">
-                    <div class="image-upgrade">
-                        img3
-                    </div>
-                    <div class="upgrade-structure-name-cost">
-                        <p class="upgrade-name">UPGRADE C</p>
-                        <div class="image-cost-and-cost">
-                            <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
-                            <p class="upgrade-cost">1</p>
-                        </div>
-                    </div>
-                    <p class="upgrade-quantity-counter">0</p>
-                </div>
-
-                <div id="upgrade-d" class="upgrade-box">
-                    <div class="image-upgrade">
-                        img4
-                    </div>
-                    <div class="upgrade-structure-name-cost">
-                        <p class="upgrade-name">UPGRADE D</p>
-                        <div class="image-cost-and-cost">
-                            <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
-                            <p class="upgrade-cost">1</p>
-                        </div>
-                    </div>
-                    <p class="upgrade-quantity-counter">0</p>
-                </div>
-
-                <div id="upgrade-e" class="upgrade-box">
-                    <div class="image-upgrade">
-                        img5
-                    </div>
-                    <div class="upgrade-structure-name-cost">
-                        <p class="upgrade-name">UPGRADE E</p>
-                        <div class="image-cost-and-cost">
-                            <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
-                            <p class="upgrade-cost">1</p>
-                        </div>
-                    </div>
-
-                    <p class="upgrade-quantity-counter">0</p>
-                </div>
-            </div>
+          </div>
+          <p id="upgrade-quantity-counter-minion" class="upgrade-quantity-counter">0</p>
         </div>
 
-    </section>
-    <!-- <script src="assets/js/script.js"></script>
-    <script src="assets/js/upgrades.js"></script> -->
-    
+        <div id="upgrade-galinha" class="upgrade-box">
+          <div class="div-image-upgrade">
+            <img class="image-upgrade" src="assets/imgs/acuamina.webp" alt="">
+          </div>
+          <div class="upgrade-structure-name-cost">
+            <p class="upgrade-name">GALINHA</p>
+            <div class="image-cost-and-cost">
+              <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
+              <p class="upgrade-cost">100</p>
+            </div>
+          </div>
+          <p class="upgrade-quantity-counter">0</p>
+        </div>
+
+        <div id="upgrade-jinx" class="upgrade-box">
+          <div class="div-image-upgrade">
+            <img class="image-upgrade" src="assets/imgs/jinx.webp" alt="">
+          </div>
+          <div class="upgrade-structure-name-cost">
+            <p class="upgrade-name">JINX</p>
+            <div class="image-cost-and-cost">
+              <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
+              <p class="upgrade-cost">10000</p>
+            </div>
+          </div>
+          <p class="upgrade-quantity-counter">0</p>
+        </div>
+
+        <div id="upgrade-ryze" class="upgrade-box">
+          <div class="div-image-upgrade">
+            <img class="image-upgrade" src="assets/imgs/ryze.webp" alt="">
+          </div>
+          <div class="upgrade-structure-name-cost">
+            <p class="upgrade-name">RYZE</p>
+            <div class="image-cost-and-cost">
+              <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
+              <p class="upgrade-cost">1000000</p>
+            </div>
+          </div>
+          <p class="upgrade-quantity-counter">0</p>
+        </div>
+
+        <div id="upgrade-brand" class="upgrade-box">
+          <div class="div-image-upgrade">
+            <img class="image-upgrade" src="assets/imgs/brand.webp" alt="">
+          </div>
+          <div class="upgrade-structure-name-cost">
+            <p class="upgrade-name">BRAND</p>
+            <div class="image-cost-and-cost">
+              <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
+              <p class="upgrade-cost">1000000000</p>
+            </div>
+          </div>
+          <p class="upgrade-quantity-counter">0</p>
+
+        </div>
+
+        <div id="upgrade-rei-poro" class="upgrade-box">
+          <div class="div-image-upgrade">
+            <img class="image-upgrade" src="assets/imgs/poro.webp" alt="">
+          </div>
+          <div class="upgrade-structure-name-cost">
+            <p class="upgrade-name">REI PORO</p>
+            <div class="image-cost-and-cost">
+              <img class="coins-image-cost" src="assets/imgs/moeda.png" alt="">
+              <p class="upgrade-cost">100000000000</p>
+            </div>
+          </div>
+          <p class="upgrade-quantity-counter">0</p>
+
+      </div>
+    </div>
+  </section>
+  <script src="assets/js/script.js" defer></script>
+
 </body>
+
 </html>

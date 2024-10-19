@@ -1,38 +1,37 @@
-// Variáveis 
-const clickPower = document.getElementById('power-counter');
-const facePerson = document.getElementById('face-person');
-const coinsNumber = document.getElementById('coins-number');
+const blueEssence = document.getElementById('blue-essence-structure');
+let coinsNumber = document.getElementById('coins-number');
+let clickPower = 1;
+let parsedCoinsNumber = parseInt(coinsNumber.innerText);
 
-facePerson.addEventListener('click', function() {
-    
-    let parsedClickPower = parseInt(clickPower.innerText);
-    let parsedCoinsNumber = parseInt(coinsNumber.innerText);
-    
-    parsedCoinsNumber += parsedClickPower;
-    
+
+const upgradeMinion = document.getElementById('upgrade-minion')
+let upgradeMinionCount = document.getElementById('upgrade-quantity-counter-minion');
+let parsedUpgradeMinionCount = parseInt(upgradeMinionCount.innerText);
+
+let upgradeCostMinion = document.getElementById('upgrade-cost-minion')
+let parsedUpgradeCostMinion = parseInt(upgradeCostMinion.innerText)
+
+
+
+
+
+blueEssence.addEventListener('click', function() {
+
+    parsedCoinsNumber += clickPower;
     coinsNumber.innerText = parsedCoinsNumber;
+
 })
 
+upgradeMinion.addEventListener('click', function() {
 
-// +
-const plusButton = document.getElementById('plus-upgrade');
-plusButton.addEventListener('click', function() {
-    
-    let parsedClickPower = parseInt(clickPower.innerText);
-    parsedClickPower++;
-    clickPower.innerText = parsedClickPower;
-    
-})
+    if (parsedCoinsNumber != 0) {
+        //Colocar um let para definir o valor adicionado no click power baseado no poder do minion
+        clickPower++;
+        parsedUpgradeMinionCount++;
+        upgradeMinionCount.innerText = parsedUpgradeMinionCount;
 
-// -
-const substractButton = document.getElementById('subtract-upgrade');
-substractButton.addEventListener('click', function() {
-    
-    let powerCounterInt = parseInt(clickPower.innerText);
+        parsedCoinsNumber -= parsedUpgradeCostMinion;
 
-    if (powerCounterInt !== 0) {
-        powerCounterInt--;
+        coinsNumber.innerText = parsedCoinsNumber;
     }
-
-    clickPower.innerText = powerCounterInt;
 })
