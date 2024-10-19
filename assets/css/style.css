@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
+:root {
+    --cinza-frio: rgb(60, 60, 65);
+    --dourado-letras: rgb(240, 230, 210);
+    --dourado-hover: #f6d100;
+    --preto: rgb(0, 0, 0);
+}
+
 /* Default Configs */
 html {
     box-sizing: border-box;
@@ -17,12 +24,17 @@ html {
     padding: 0;
 }
 
+body {
+    box-sizing: inherit;
+    background-color: bl;
+}
 
 /* Headers */
 h1 {
     font-family: 'Beaufort for LOL', 'Montserrat';
     font-size: 5rem;
     padding: 1.5rem;
+    color: var(--dourado-letras);
     color: white;
     font-weight: 1000;
     text-shadow: 2px 2px 0 black;
@@ -42,7 +54,7 @@ aside {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background: rgb(211, 172, 105);
+    background: var(--preto);
     z-index: 1;
 }
 
@@ -78,6 +90,7 @@ aside .configs2 {
     justify-content: center;
     align-items: center;
     height: 100%;
+    border-right: solid black;
 }
 
 .counter-and-coins {
@@ -88,7 +101,7 @@ aside .configs2 {
 }
 
 .coins-number{
-    font-family: 'Afacad Flux';
+    font-family: 'Beaufort for LOL', sans-serif;
     font-weight: 900;
     font-size: 10rem;
 }
@@ -98,19 +111,32 @@ aside .configs2 {
     padding-left: 1rem;
 }
 
+
+
+/* Click Power*/
+.click-power {
+    font-size: 1.3rem;
+    font-family: 'Beaufort for LOL', sans-serif;
+    padding-bottom: 2rem;
+    font-weight: 800;
+}
+
+
+
 /* Circle where the user clicks */
 .blue-essence-circular-structure {
     background-color: rgb(185, 185, 30);
+    box-shadow: 1px 1px 1px 1px rgb(91, 91, 204);
     border-radius: 50%;
-    width:  20rem;
-    height: 20rem;
+    width:  22rem;
+    height: 22rem;
     overflow: hidden;
     cursor: pointer;
     transition: transform 50ms ease-in-out;
 }
 
 .blue-essence-circular-structure:hover {
-    transform: scale(1.1);
+    transform: scale(0.99);
 }
 
 .blue-essence-circular-structure:active {
@@ -153,10 +179,11 @@ aside .configs2 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color:yellow;
+    background-color: rgb(106, 106, 106);
     max-width: 70%;
     max-height: 80%;
     overflow: auto;
+    border-radius: 10px;
 }
 
 .upgrade-box {
@@ -164,19 +191,37 @@ aside .configs2 {
     grid-template-columns: 1fr 3fr 1fr;
     justify-items: center;
     align-items: center;
-    background: blue;
-    color: white;
+    background: var(--cinza-frio);
+    color: var(--dourado-letras);
     margin: 1rem;
     max-height: 50%;
     max-width: 100%;
     border: 1px solid transparent;
     border-radius: 10px;
+    opacity: 0.95;
+    position: relative;
 }
 
-.upgrade-box:hover {
-    border: 1px solid rgb(38, 255, 0);
+.upgrade-box::after {
+    content: "Click Power: 1";
+    position: absolute;
+    left: -85px;
+    opacity: 0;
+    z-index: 2;
+    color: var(--preto);
 }
 
+.upgrade-box:hover{
+    border: 1px solid grey;
+    color: var(--dourado-hover);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.upgrade-box:hover::after {
+    color: black;
+    opacity: 1;
+}
 
 .upgrade-structure-name-cost {
     display: flex;
@@ -185,10 +230,10 @@ aside .configs2 {
 }
 
 .upgrade-name {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Beaufort for LOL', sans-serif;
     text-transform:capitalize;
     font-weight: 1000;
-    font-size: 3rem
+    font-size: 3rem;
 }
 
 .image-cost-and-cost {
@@ -206,6 +251,7 @@ aside .configs2 {
     font-family: 'Montserrat', sans-serif;
     text-transform:capitalize;
     font-weight: 1000;
+    color: white;
 }
 
 .upgrade-quantity-counter {
@@ -213,4 +259,5 @@ aside .configs2 {
     padding-right: 0.5rem;
     font-family: 'Afacad Flux', sans-serif;
     font-weight: 500;
+    color: white;
 }
