@@ -4,32 +4,26 @@ let parsedClickPower = parseInt(clickPower.innerText.slice(12));
 let coinsNumber = document.getElementById('coins-number');
 let parsedCoinsNumber = parseInt(coinsNumber.innerText);
 
-let upgradeMinionClickPower = 1;
-let upgradeAcuaminaClickPower = 10;
-let upgradeJinxClickPower = 100;
-let upgradeRyzeClickPower = 1000;
-let upgradeBrandClickPower = 10000;
-let upgradeReiPoro = 100000;
-
-const audio = new Audio('assets/sounds/pop-sound.mp3');
+// const audio = new Audio('assets/sounds/pop-sound.mp3');
 
 blueEssence.addEventListener('click', function () {
+    // audio.play();
 
-    audio.play();
-    
     parsedCoinsNumber += parsedClickPower;
     coinsNumber.innerText = parsedCoinsNumber;
+    showUpgrade();
 })
 
 class Upgrade {
- 
-    constructor({ elementID, elementCountID, elementCostID, elementClickPower }) {
+
+    constructor({ elementID, elementCountID, elementCostID, elementClickPowerID }) {
         this.element = document.getElementById(elementID);
         this.elementCost = document.getElementById(elementCostID);
         this.parsedElementCost = parseInt(this.elementCost.innerText);
         this.elementCount = document.getElementById(elementCountID);
         this.parsedElementCount = parseInt(this.elementCount.innerText);
-        this.elementClickPower = elementClickPower;
+        this.elementClickPower = document.getElementById(elementClickPowerID);
+        this.parsedElementClickPower = parseInt(this.elementClickPower.innerText.slice(12))
         this.init();
     }
 
@@ -41,7 +35,7 @@ class Upgrade {
 
         if (parsedCoinsNumber >= this.parsedElementCost) {
 
-            parsedClickPower += this.elementClickPower;
+            parsedClickPower += this.parsedElementClickPower;
             clickPower.innerText = "Click Power: " + parsedClickPower;
 
             this.parsedElementCount++;
@@ -53,39 +47,53 @@ class Upgrade {
         }
     }
 
+
+
 }
 
 let minionUpgrade = new Upgrade({
     elementID: 'upgrade-minion',
     elementCostID: 'upgrade-cost-minion',
     elementCountID: 'upgrade-quantity-counter-minion',
-    elementClickPower: upgradeMinionClickPower,
+    elementClickPowerID: 'upgrade-minion-click-power',
 });
 
 let acuaminaUpgrade = new Upgrade({
     elementID: 'upgrade-acuamina',
     elementCostID: 'upgrade-cost-acuamina',
     elementCountID: 'upgrade-quantity-counter-acuamina',
-    elementClickPower: upgradeAcuaminaClickPower,
+    elementClickPowerID: 'upgrade-acuamina-click-power',
 })
 
 let jinxUpgrade = new Upgrade({
     elementID: 'upgrade-jinx',
     elementCostID: 'upgrade-cost-jinx',
     elementCountID: 'upgrade-quantity-counter-jinx',
-    elementClickPower: upgradeJinxClickPower,
+    elementClickPowerID: 'upgrade-jinx-click-power',
 })
 
 let ryzeUpgrade = new Upgrade({
     elementID: 'upgrade-ryze',
     elementCostID: 'upgrade-cost-ryze',
     elementCountID: 'upgrade-quantity-counter-ryze',
-    elementClickPower: upgradeRyzeClickPower,
+    elementClickPowerID: 'upgrade-ryze-click-power',
 })
 
 let brandUpgrade = new Upgrade({
     elementID: 'upgrade-brand',
     elementCostID: 'upgrade-cost-brand',
     elementCountID: 'upgrade-quantity-counter-brand',
-    elementClickPower: upgradeBrandClickPower,
+    elementClickPowerID: 'upgrade-brand-click-power',
 })
+
+function showUpgrade() {
+
+    const upgrades = [minionUpgrade, acuaminaUpgrade, jinxUpgrade, ryzeUpgrade, brandUpgrade]
+    upgrades.forEach(upgrade => {
+
+        if (parsedCoinsNumber >= upgrade.parsedElementCost) {
+            upgrade.element.style.opacity = '1';
+        }
+    })
+
+}
