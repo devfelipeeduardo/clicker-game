@@ -4,16 +4,6 @@ let parsedClickPower = parseInt(clickPower.innerText.slice(12));
 let coinsNumber = document.getElementById('coins-number');
 let parsedCoinsNumber = parseInt(coinsNumber.innerText);
 
-// const audio = new Audio('assets/sounds/pop-sound.mp3');
-
-blueEssence.addEventListener('click', function () {
-    // audio.play();
-
-    parsedCoinsNumber += parsedClickPower;
-    coinsNumber.innerText = parsedCoinsNumber;
-    showUpgrade();
-})
-
 class Upgrade {
 
     constructor({ elementID, elementCountID, elementCostID, elementClickPowerID }) {
@@ -29,6 +19,7 @@ class Upgrade {
 
     init() {
         this.element.addEventListener('click', () => this.upgradeClickPower())
+        this.element.addEventListener('click', () => this.increaseCost())
     }
 
     upgradeClickPower() {
@@ -44,10 +35,11 @@ class Upgrade {
             parsedCoinsNumber -= this.parsedElementCost;
 
             coinsNumber.innerText = parsedCoinsNumber;
+
+            this.parsedElementCost += this.parsedElementCost;
+            this.elementCost.innerText = this.parsedElementCost;
         }
     }
-
-
 
 }
 
@@ -97,3 +89,18 @@ function showUpgrade() {
     })
 
 }
+
+// const audio = new Audio('assets/sounds/pop-sound.mp3');
+blueEssence.addEventListener('click', function () {
+    // audio.play();
+    parsedCoinsNumber += parsedClickPower;
+    coinsNumber.innerText = parsedCoinsNumber;
+    showUpgrade();
+})
+
+// setInterval(() => {
+
+//     parsedCoinsNumber += 1;
+//     coinsNumber.innerText = parsedCoinsNumber;
+
+// }, 1000)
