@@ -7,6 +7,7 @@
     --dourado-letras: rgb(240, 230, 210);
     --dourado-hover: #f6d100;
     --preto: rgb(0, 0, 0);
+    --fonte-lol: 'Beaufort for LOL';
 }
 
 /* Default Configs */
@@ -31,7 +32,7 @@ body {
 
 /* Headers */
 h1 {
-    font-family: 'Beaufort for LOL', 'Montserrat';
+    font-family: var(--fonte-lol), 'Montserrat';
     font-size: 5rem;
     padding: 1.5rem;
     color: var(--dourado-letras);
@@ -40,12 +41,18 @@ h1 {
     text-shadow: 2px 2px 0 black;
 }
 
+a {
+    text-decoration: none;
+}
 
 /* Tags */
 aside {
     display: block;
 }
 
+aside .desenvolvido-por {
+    text-align: center;
+}
 
 /* Header */
 .header-titulo {
@@ -58,19 +65,45 @@ aside {
     z-index: 1;
 }
 
-aside .configs1,
-aside .configs2 {
+aside .desenvolvido-por,
+aside .social-medias {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: yellow;
-    margin: 1rem;
+    background-color: var(--dourado-letras);
     height: 5rem;
     width: 20rem;
     font-size: 1.5rem;
 }
 
+aside .header-titulo .social-medias {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+}
+
+.logo-social-media {
+    width: 25%;
+    height: 10%;
+    padding-right: 4px;
+}
+
+.linkedin-structure,
+.github-structure {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fonte-lol);
+    cursor: pointer;
+}
 
 /* Sections Configuration*/
 .section {
@@ -85,12 +118,14 @@ aside .configs2 {
 
 /* Main Page Left Side */
 .blue-essence-and-coins-structure {
+    background: pink;
+    background-image: url(../imgs/left-side-images/background-blue-essence.png);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    border-right: solid black;
+    border-right: 10px solid black;
 }
 
 .counter-and-coins {
@@ -101,14 +136,15 @@ aside .configs2 {
 }
 
 .coins-number{
-    font-family: 'Beaufort for LOL', sans-serif;
+    font-family: var(--fonte-lol), sans-serif;
     font-weight: 900;
     font-size: 10rem;
+    color: white;
 }
 
 .coins-img {
     width: 10%;
-    padding-left: 1rem;
+    padding-left: 10px;
 }
 
 
@@ -116,9 +152,10 @@ aside .configs2 {
 /* Click Power*/
 .click-power {
     font-size: 1.3rem;
-    font-family: 'Beaufort for LOL', sans-serif;
-    padding-bottom: 2rem;
+    font-family: var(--fonte-lol), sans-serif;
+    padding-bottom: 20px;
     font-weight: 800;
+    color: white;
 }
 
 
@@ -171,35 +208,36 @@ aside .configs2 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 50%;
     height: 100%;
-    padding-top: 60px;
+    padding-top: 93px;
 }
 
 .upgrade-boxes {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: rgb(106, 106, 106);
-    max-width: 70%;
-    max-height: 80%;
-    overflow: auto;
-    border-radius: 10px;
+    max-width: 100%;
+    height: 100%;
+    border-right: 1px solid black;
 }
 
 .upgrade-box {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    grid-auto-columns: max-content(100px);
     justify-items: center;
     align-items: center;
     background: var(--cinza-frio);
     color: var(--dourado-letras);
-    margin: 1rem;
-    max-height: 50%;
     max-width: 100%;
     border: 1px solid transparent;
     border-radius: 10px;
     opacity: 0.95;
     position: relative;
+    margin: 0px 8px 0px 8px;
+    padding: 8px 0 8px 0;
 }
 
 .upgrade-box::after {
@@ -230,10 +268,10 @@ aside .configs2 {
 }
 
 .upgrade-name {
-    font-family: 'Beaufort for LOL', sans-serif;
+    font-family: var(--fonte-lol), sans-serif;
     text-transform:capitalize;
     font-weight: 1000;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .image-cost-and-cost {
@@ -244,7 +282,8 @@ aside .configs2 {
 }
 
 .coins-image-cost {
-    width: 10%;
+    width: 9%;
+    padding-right: 4px;
 }
 
 .upgrade-cost {
@@ -255,8 +294,8 @@ aside .configs2 {
 }
 
 .upgrade-quantity-counter {
-    font-size: 3rem;
-    padding-right: 0.5rem;
+    font-size: 5rem;
+    padding-right: 5px;
     font-family: 'Afacad Flux', sans-serif;
     font-weight: 500;
     color: white;
