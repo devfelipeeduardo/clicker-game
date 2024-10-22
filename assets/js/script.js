@@ -34,10 +34,10 @@ class Upgrade {
 
             parsedCoinsNumber -= this.parsedElementCost;
 
-            coinsNumber.innerText = parsedCoinsNumber;
+            coinsNumber.innerText = Math.round(parsedCoinsNumber);
 
-            this.parsedElementCost += this.parsedElementCost;
-            this.elementCost.innerText = this.parsedElementCost;
+            this.parsedElementCost += this.parsedElementCost * Math.pow(1.15, this.parsedElementCount);
+            this.elementCost.innerText = Math.round(this.parsedElementCost);
         }
     }
 
@@ -94,7 +94,7 @@ function showUpgrade() {
 blueEssence.addEventListener('click', function () {
     // audio.play();
     parsedCoinsNumber += parsedClickPower;
-    coinsNumber.innerText = parsedCoinsNumber;
+    coinsNumber.innerText = Math.round(parsedCoinsNumber);
     showUpgrade();
 })
 
