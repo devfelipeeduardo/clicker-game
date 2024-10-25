@@ -5,7 +5,6 @@ let coinsNumber = document.getElementById('coins-number');
 let parsedCoinsNumber = parseInt(coinsNumber.innerText);
 
 class Upgrade {
-
     constructor({ elementID, elementCountID, elementCostID, inicialElementCost, elementClickPowerID }) {
         this.element = document.getElementById(elementID);
         this.elementCost = document.getElementById(elementCostID);
@@ -26,14 +25,13 @@ class Upgrade {
     }
 
     upgradeClickPower() {
-
         if (parsedCoinsNumber >= this.parsedElementCost) {
 
-              // Aumenta o poder de clique
+            // Aumenta o poder de clique
             parsedClickPower += this.parsedElementClickPower;
             clickPower.innerText = "Click Power: " + parsedClickPower;
 
-             // Aumenta a contagem de upgrades
+            // Aumenta a contagem de upgrades
             this.parsedElementCount++;
             this.elementCount.innerText = this.parsedElementCount;
 
@@ -41,10 +39,13 @@ class Upgrade {
             parsedCoinsNumber -= this.parsedElementCost;
             coinsNumber.innerText = Math.round(parsedCoinsNumber);
 
-            // Recalcula o custo baseado no número de upgrades comprados
-            this.parsedElementCost = Math.ceil(this.inicialElementCost * Math.pow(1.15, this.parsedElementCount));
-            this.elementCost.innerText = this.parsedElementCost;
         }
+    }
+
+    increaseCost() {
+        // Recalcula o custo baseado no número de upgrades comprados
+        this.parsedElementCost = Math.ceil(this.inicialElementCost * Math.pow(1.15, this.parsedElementCount));
+        this.elementCost.innerText = this.parsedElementCost;
     }
 
 }
@@ -98,28 +99,53 @@ let reiPoroUpgrade = new Upgrade({
 })
 
 function showUpgrade() {
-
-    const upgrades = [minionUpgrade, acuaminaUpgrade, jinxUpgrade, ryzeUpgrade, brandUpgrade]
+    const upgrades = [minionUpgrade, acuaminaUpgrade, jinxUpgrade, ryzeUpgrade, brandUpgrade, reiPoroUpgrade]
     upgrades.forEach(upgrade => {
 
         if (parsedCoinsNumber >= upgrade.parsedElementCost) {
             upgrade.element.style.opacity = '1';
         }
     })
-
 }
 
-// const audio = new Audio('assets/sounds/pop-sound.mp3');
+let coinsNumberAchievedList = [100,
+    1000,
+    10000,
+    100000,
+    1000000,
+    10000000,
+    100000000,
+    1000000000];
+
+function showAchievement() {
+    const achievementValue = document.getElementById('achievement-value');
+    const achievementAlert = document.querySelector('.structure-achievement-alert');
+
+    // Itera sobre os marcos e quando alcançar, transiciona a opacidade 0-1-0 e mostra o marco.
+    let highestNumberAchieved = 0;
+    coinsNumberAchievedList.forEach(function (coinsNumberAchieved) {
+        if (parsedCoinsNumber >= coinsNumberAchieved) {
+            highestNumberAchieved = coinsNumberAchieved;
+            achievementValue.innerText = highestNumberAchieved;
+            achievementAlert.style.opacity = '1';
+            setTimeout(() => {
+                achievementAlert.style.opacity = '0';
+            }, 1250);
+            coinsNumberAchievedList.shift();
+        }
+    });
+}
+
+// Dinâmica do Click
 blueEssence.addEventListener('click', function () {
-    // audio.play();
     parsedCoinsNumber += parsedClickPower;
     coinsNumber.innerText = Math.round(parsedCoinsNumber);
     showUpgrade();
+    showAchievement();
 })
 
+//Dinâmica do DPS - EM DESENVOLVIMENTO
 // setInterval(() => {
-
 //     parsedCoinsNumber += 1;
 //     coinsNumber.innerText = parsedCoinsNumber;
-
 // }, 1000)

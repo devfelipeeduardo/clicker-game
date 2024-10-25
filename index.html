@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <span class="media-query-768px">DISPOSITIVO NÃO COMPATIVEL</span>
   <aside>
     <div class="header-titulo">
 
@@ -26,7 +27,6 @@
             <p>Linkedin</p>
           </div>
         </a>
-
         <a href="https://github.com/devfelipeeduardo" target="_blank">
           <div class="github-structure">
             <img class="logo-social-media" src="assets/imgs/social-medias-images/github.png" alt="Github">
@@ -43,6 +43,17 @@
     <div class="blue-essence-and-coins-structure">
       <div class="blue-essence-and-coins">
         <div id="counter-and-coins" class="counter-and-coins">
+          <!-- Alerta Conquista -->
+          <div class="structure-achievement-alert">
+            <p id="you-reach" class="you-reach">
+              Você alcançou:
+              <span id="achievement-value" class="achievement-value">
+                0
+              </span>
+              essências
+            </p>
+          </div>
+
           <span id="coins-number" class="coins-number">
             0
           </span>
@@ -182,12 +193,12 @@
           <p id="upgrade-quantity-counter-rei-poro" class="upgrade-quantity-counter">
             0
           </p>
-
         </div>
+
       </div>
     </div>
   </section>
   <script src="assets/js/script.js" defer></script>
-
 </body>
+
 </html>

@@ -31,15 +31,19 @@ body {
     user-select: none;
 }
 
+@keyframes h1Wave {
+    0% {color: var(--dourado-letras)};   
+    100% {color: aliceblue};
+}
+
 /* Headers */
 h1 {
     font-family: var(--fonte-lol), 'Montserrat';
     font-size: 5rem;
     padding: 1.5rem;
-    color: var(--dourado-letras);
-    color: white;
     font-weight: 1000;
     text-shadow: 2px 2px 0 black;
+    animation: h1Wave 4.5s cubic-bezier(0.5, 0, 0.5, 1) infinite alternate;
 }
 
 a {
@@ -91,8 +95,8 @@ aside .header-titulo .social-medias {
     padding-right: 4px;
 }
 
-.linkedin-structure,
-.github-structure {
+.social-medias .linkedin-structure,
+.social-medias .github-structure {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -125,6 +129,40 @@ aside .header-titulo .social-medias {
     border-right: 10px solid black;
 }
 
+
+
+/* Achievement */
+.structure-achievement-alert {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imgs/left-side-images/background-blue-essence.png);
+    color: var(--dourado-letras);
+    border: 2px solid rgba(128, 128, 128, 0.5);
+    position: absolute;
+    width: 350px;
+    height: 55px;
+    top: 120px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.you-reach {
+    font-family: var(--fonte-lol);
+    font-size: 2rem;
+    color: var(--dourado-letras);
+}
+
+.achievement-value {
+    font-family: inherit;
+    font-size: 2.2rem;
+    color: var(--dourado-hover);
+}
+/**/
+
+/* Contador */
 .counter-and-coins {
     display: flex;
     flex-direction: row;
@@ -137,13 +175,14 @@ aside .header-titulo .social-medias {
     font-weight: 900;
     font-size: 10rem;
     color: white;
+    position: relative;
 }
 
 .coins-img {
     width: 10%;
     padding-left: 10px;
 }
-
+/**/
 
 
 /* Click Power*/
@@ -155,9 +194,7 @@ aside .header-titulo .social-medias {
     color: white;
 }
 
-
-
-/* Circle where the user clicks */
+/* Círculo onde o usuário clica */
 .blue-essence-circular-structure {
     background-color: rgb(185, 185, 30);
     box-shadow: 1px 1px 1px 1px rgb(91, 91, 204);
@@ -181,22 +218,8 @@ aside .header-titulo .social-medias {
     width: 100%;
     height: 100%;
 }
+/**/
 
-
-.div-image-upgrade {
-    width: 75px;
-    height: 75px;
-    background: black;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    box-shadow: 0.5px 0px 1px 3px rgb(44, 44, 44);
-    overflow: hidden;
-}
-
-.image-upgrade {
-    width: 100%;
-    height: 100%;
-}
 
 /* Main Page Right Side */
 
@@ -223,9 +246,9 @@ aside .header-titulo .social-medias {
 }
 
 .upgrade-box {
+    opacity: 0.5;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-auto-columns: max-content(100px);
     justify-items: center;
     align-items: center;
     width: 100%;
@@ -243,9 +266,27 @@ aside .header-titulo .social-medias {
     border: 1px solid grey;
     color: var(--dourado-hover);
     opacity: 1;
-    cursor: url(../imgs/cursor/normal.cur), auto;
+}
+/**/
+
+
+/* Imagem do Upgrade */
+.div-image-upgrade {
+    width: 75px;
+    height: 75px;
+    background: black;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    box-shadow: 0.5px 0px 1px 3px rgb(44, 44, 44);
+    overflow: hidden;
 }
 
+.image-upgrade {
+    width: 100%;
+    height: 100%;
+}
+
+/*  Estrutura de Nome e Custo */
 .upgrade-structure-name-cost {
     display: flex;
     flex-direction: column;
@@ -259,36 +300,17 @@ aside .header-titulo .social-medias {
     font-size: 4rem;
 }
 
-/* Mecanismo para mudar a opacidade quando o upgrade estiver ok*/
-
+/* Mecanismo para mudar a opacidade quando o upgrade estiver ok */
 .upgrade-boxes>.upgrade-box {
-    opacity: 0.5;
+    opacity: 0.rgb(43, 43, 43);
     transition: opacity 1s ease;
 }
 
+/* Estado Incial Minion*/
 .upgrade-box:nth-child(1) {
-
     opacity: 1;
 }
 
-.upgrade-info {
-    position: absolute;
-    background-image: url(../imgs/left-side-images/background-blue-essence.png);
-    width: 20%;
-    height: 50%;
-    left: -120px;
-    color: var(--dourado-letras);
-    border: 2px solid rgba(128, 128, 128, 0.5);
-    border-radius: 3px;
-    display: none;
-}
-
-.upgrade-box:hover .upgrade-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 .image-cost-and-cost {
     display: flex;
@@ -303,7 +325,7 @@ aside .header-titulo .social-medias {
 }
 
 .upgrade-cost {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fonte-lol), sans-serif;
     font-size: 1.8rem;
     text-transform: capitalize;
     font-weight: 1000;
@@ -316,4 +338,57 @@ aside .header-titulo .social-medias {
     font-family: 'Afacad Flux', sans-serif;
     font-weight: 500;
     color: white;
+}
+
+/* ClickPower e DPSPower do Upgrade */
+.upgrade-info {
+    position: absolute;
+    background-image: url(../imgs/left-side-images/background-blue-essence.png);
+    width: 100px;
+    height: 50px;
+    left: -120px;
+    color: var(--dourado-letras);
+    border: 2px solid rgba(128, 128, 128, 0.5);
+    border-radius: 3px;
+    display: none;
+}
+
+.upgrade-box:hover .upgrade-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/**/
+
+.media-query-768px {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imgs/left-side-images/background-blue-essence.png);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    z-index: 10000;
+    color: white;
+    overflow: hidden;
+    /* display: none; */
+}
+
+@media (max-width: 768px) {
+    
+    html {
+        background-image: url(../imgs/left-side-images/background-blue-essence.png);
+    }
+
+    body {
+        color: var(--dourado-letras);
+    }
+
+    .media-query-768px {
+        display: visible;
+    }
+
 }
