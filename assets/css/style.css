@@ -186,12 +186,17 @@ aside .header-titulo .social-medias {
 
 
 /* Click Power*/
-.click-power {
+.click-power,
+.dps-power {
     font-size: 1.3rem;
     font-family: var(--fonte-lol), sans-serif;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-weight: 800;
     color: white;
+}
+
+.dps-power {
+    padding-bottom: 10px;
 }
 
 /* Círculo onde o usuário clica */

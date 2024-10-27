@@ -1,11 +1,13 @@
 const blueEssence = document.getElementById('blue-essence-structure');
-let clickPower = document.getElementById('click-power');
-let parsedClickPower = parseInt(clickPower.innerText.slice(12));
 let coinsNumber = document.getElementById('coins-number');
 let parsedCoinsNumber = parseInt(coinsNumber.innerText);
+let clickPower = document.getElementById('click-power');
+let parsedClickPower = parseInt(clickPower.innerText.slice(12));
+let dpsPower = document.getElementById('dps-power');
+let parsedDpsPower = parseInt(dpsPower.innerText.slice(11));
 
 class Upgrade {
-    constructor({ elementID, elementCountID, elementCostID, inicialElementCost, elementClickPowerID }) {
+    constructor({ elementID, elementCountID, elementCostID, inicialElementCost, elementClickPowerID, elementDpsPowerID }) {
         this.element = document.getElementById(elementID);
         this.elementCost = document.getElementById(elementCostID);
         this.parsedElementCost = parseInt(this.elementCost.innerText);
@@ -13,7 +15,10 @@ class Upgrade {
         this.elementCount = document.getElementById(elementCountID);
         this.parsedElementCount = parseInt(this.elementCount.innerText);
         this.elementClickPower = document.getElementById(elementClickPowerID);
-        this.parsedElementClickPower = parseInt(this.elementClickPower.innerText.slice(12))
+        this.parsedElementClickPower = parseInt(this.elementClickPower.innerText.slice(12));
+        this.elementDpsPower = document.getElementById(elementDpsPowerID);
+        this.parsedElementDpsPower = parseInt(this.elementDpsPower.innerText.slice(11));
+
         this.init();
     }
 
@@ -21,6 +26,7 @@ class Upgrade {
         this.element.addEventListener('click', () => {
             this.upgradeClickPower()
             this.increaseCost()
+            this.upgradeDpsPower()
         })
     }
 
@@ -48,6 +54,13 @@ class Upgrade {
         this.elementCost.innerText = this.parsedElementCost;
     }
 
+    upgradeDpsPower() {
+
+        // Aumenta o poder de clique
+        parsedDpsPower += this.parsedElementDpsPower;
+        dpsPower.innerText = "Dps Power: " + parsedDpsPower;
+    }
+
 }
 
 let minionUpgrade = new Upgrade({
@@ -56,6 +69,7 @@ let minionUpgrade = new Upgrade({
     inicialElementCost: 15,
     elementCountID: 'upgrade-quantity-counter-minion',
     elementClickPowerID: 'upgrade-minion-click-power',
+    elementDpsPowerID: 'upgrade-minion-dps-power',
 });
 
 let acuaminaUpgrade = new Upgrade({
@@ -64,6 +78,7 @@ let acuaminaUpgrade = new Upgrade({
     inicialElementCost: 100,
     elementCountID: 'upgrade-quantity-counter-acuamina',
     elementClickPowerID: 'upgrade-acuamina-click-power',
+    elementDpsPowerID: 'upgrade-acuamina-dps-power',
 })
 
 let jinxUpgrade = new Upgrade({
@@ -72,6 +87,7 @@ let jinxUpgrade = new Upgrade({
     inicialElementCost: 1100,
     elementCountID: 'upgrade-quantity-counter-jinx',
     elementClickPowerID: 'upgrade-jinx-click-power',
+    elementDpsPowerID: 'upgrade-jinx-dps-power',
 })
 
 let ryzeUpgrade = new Upgrade({
@@ -80,6 +96,7 @@ let ryzeUpgrade = new Upgrade({
     inicialElementCost: 12000,
     elementCountID: 'upgrade-quantity-counter-ryze',
     elementClickPowerID: 'upgrade-ryze-click-power',
+    elementDpsPowerID: 'upgrade-ryze-dps-power',
 })
 
 let brandUpgrade = new Upgrade({
@@ -88,6 +105,7 @@ let brandUpgrade = new Upgrade({
     inicialElementCost: 130000,
     elementCountID: 'upgrade-quantity-counter-brand',
     elementClickPowerID: 'upgrade-brand-click-power',
+    elementDpsPowerID: 'upgrade-brand-dps-power',
 })
 
 let reiPoroUpgrade = new Upgrade({
@@ -96,6 +114,7 @@ let reiPoroUpgrade = new Upgrade({
     inicialElementCost: 1400000,
     elementCountID: 'upgrade-quantity-counter-rei-poro',
     elementClickPowerID: 'upgrade-rei-poro-click-power',
+    elementDpsPowerID: 'upgrade-rei-poro-dps-power',
 })
 
 function showUpgrade() {
@@ -144,8 +163,8 @@ blueEssence.addEventListener('click', function () {
     showAchievement();
 })
 
-//Dinâmica do DPS - EM DESENVOLVIMENTO
-// setInterval(() => {
-//     parsedCoinsNumber += 1;
-//     coinsNumber.innerText = parsedCoinsNumber;
-// }, 1000)
+//Dinâmica do Dps - EM DESENVOLVIMENTO
+setInterval(() => {
+    parsedCoinsNumber += parsedDpsPower;
+    coinsNumber.innerText = parsedCoinsNumber;
+}, 1000)
